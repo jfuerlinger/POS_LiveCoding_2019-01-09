@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 
 namespace LiveCoding.Console
 {
@@ -13,12 +14,15 @@ namespace LiveCoding.Console
 
             System.Console.WriteLine($"Das Zeichen 'd' kommt in 'Donaudampfschifffahrtsgesellschaft' {"Donaudampfschifffahrtsgesellschaft".CountChars('d', ignoreCase: true)} mal vor");
 
-            // Beispiel Enumerationen 
-            Weekday dayOfTheWeek = Weekday.Sunday;
-            System.Console.WriteLine((int)dayOfTheWeek);
 
-            Weekday anotherDayOfTheWeek = Enum.Parse<Weekday>("Sunday");
-            System.Console.WriteLine(anotherDayOfTheWeek);
+            // Parsen von Enumerationen
+            string strOrderTypeFromCsv = "ToPay";
+            Task myNewTask = new Task();
+            //if(strOrderTypeFromCsv.CompareTo("ToPay"))
+            //    myNewTask.Type = OrderType.ToPay;
+            // ... oder:
+            myNewTask.Type = Enum.Parse<OrderType>(strOrderTypeFromCsv);
+            System.Console.WriteLine(myNewTask.Type);
         }
     }
 }
